@@ -86,7 +86,13 @@ class _LoginPageState extends State<LoginPage> {
                               controller: emailController,
                               decoration: InputDecoration(
                                 border: OutlineInputBorder(),
+                                labelText: "USERNAME",
                                 hintText: "Email/Phone number",
+                                labelStyle: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.blueAccent,
+                                ),
+                                suffixIcon: Icon(Icons.email_rounded),
                               ),
                             ),
                           ),
@@ -104,7 +110,14 @@ class _LoginPageState extends State<LoginPage> {
                               controller: passwordController,
                               decoration: InputDecoration(
                                   border: OutlineInputBorder(),
-                                  hintText: "Password"),
+                                  labelText: "PASSWORD",
+                                  hintText: "Password",
+                                  labelStyle: TextStyle(
+                                  fontSize: 13,
+                                  color: Colors.blueAccent,
+                                ),
+                                  suffixIcon: Icon(Icons.lock),
+                                  ),                                  
                               obscureText: true,
                             ),
                           ),

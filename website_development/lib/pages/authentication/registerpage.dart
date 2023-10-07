@@ -93,8 +93,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: TextField(
                                   controller: firstnameController,
                                   decoration: InputDecoration(
+                                    labelText: "FIRST NAME",
                                     hintText: 'First name',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -112,8 +117,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: TextField(
                                   controller: middlenameController,
                                   decoration: InputDecoration(
+                                    labelText: "MIDDLE NAME",
                                     hintText: 'Middle name',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -131,8 +141,13 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: TextField(
                                   controller: lastnameController,
                                   decoration: InputDecoration(
-                                    hintText: 'Surname name',
+                                    labelText: "SURNAME",
+                                    hintText: 'last name',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -140,6 +155,7 @@ class _RegisterPageState extends State<RegisterPage> {
                             SizedBox(height: 20),
 
                             //Gender textfield
+
                             Padding(
                               padding:
                                   const EdgeInsets.symmetric(horizontal: 20.0),
@@ -150,8 +166,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: TextField(
                                   controller: genderController,
                                   decoration: InputDecoration(
+                                    labelText: "GENDER",
                                     hintText: 'Gender',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
+                                    suffixIcon: Icon(Icons.person),
                                   ),
                                 ),
                               ),
@@ -169,8 +191,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: TextField(
                                   controller: contactController,
                                   decoration: InputDecoration(
+                                    labelText: "CONTACT",
                                     hintText: 'Contact',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
+                                    suffixIcon: Icon(Icons.contact_phone),
                                   ),
                                 ),
                               ),
@@ -188,8 +216,14 @@ class _RegisterPageState extends State<RegisterPage> {
                                 child: TextField(
                                   controller: emailController,
                                   decoration: InputDecoration(
+                                    labelText: "EMAIL",
                                     hintText: 'Email',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
+                                    suffixIcon: Icon(Icons.email_rounded),
                                   ),
                                 ),
                               ),
@@ -208,8 +242,15 @@ class _RegisterPageState extends State<RegisterPage> {
                                   controller: newpasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
+                                    labelText: "NEW PASSWORD",
                                     hintText: 'Enter new password',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
+                                    prefixIcon: Icon(Icons.lock),
+                                    suffixIcon: Icon(Icons.remove_red_eye),
                                   ),
                                 ),
                               ),
@@ -228,8 +269,15 @@ class _RegisterPageState extends State<RegisterPage> {
                                   controller: confirmpasswordController,
                                   obscureText: true,
                                   decoration: InputDecoration(
+                                    labelText: "CONFIRM PASSWORD",
                                     hintText: 'Confirm password',
                                     border: OutlineInputBorder(),
+                                    labelStyle: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blueAccent,
+                                    ),
+                                    prefixIcon: Icon(Icons.lock),
+                                    suffixIcon: Icon(Icons.remove_red_eye),
                                   ),
                                 ),
                               ),

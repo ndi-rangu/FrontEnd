@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:website_development/pages/authentication/changepwdpage.dart';
 import 'package:website_development/pages/authentication/resetpasswordpage.dart';
 import 'package:website_development/pages/users/conductorpage.dart';
 import 'package:website_development/pages/users/driverpage.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
         '/Vehicle':(context) => VehiclePage(),
         '/Register':(context) => RegisterPage(),
         '/ResetPassword':(context) => ResetpasswordPage(),
-
+        '/ChangePassword':(context) => Changepwd(),
+        
       },
     );
   }
