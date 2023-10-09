@@ -1,134 +1,156 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, sized_box_for_whitespace, sort_child_properties_last
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-
-        appBar: AppBar(
-          title: Center(
-            child: Text(
-              "Website Development",
+    return Scaffold(
+      appBar: AppBar(
+        title: Center(
+          child: Text(
+            "Bakaki Matatu",
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.black),
+          ),
+        ),
+        backgroundColor: Colors.orange[100],
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/');
+            },
+            icon: Icon(
+              Icons.logout_rounded,
+              color: Colors.black,
             ),
           ),
-          
-          
-          actions: [IconButton(onPressed: (){
-            Navigator.pushNamed(context, '/Login');
-          }, icon: Icon(Icons.logout)),],
-          
-          backgroundColor: Colors.lightBlue,
-        
-        ),
-        
-        //drawer
-        drawer: Drawer(
-          backgroundColor: Colors.grey,
-          child: ListView(
-            children: [
-              DrawerHeader(
-                child: Icon(
-                  Icons.favorite,
-                  size: 48,
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colors.white70,
-                  ),
-                  ),
-
-                  // tiles inside the drawer
-
-                  //home list tile
-                  ListTile(
-                    leading: Icon(Icons.home),
-                    title: Text("HOME"),
-                    onTap: (){
-                      //pop drawer first
-                      Navigator.pop(context);
-
-                      //navigate user back to home page
-                      Navigator.pushNamed(context, '/Driver');
-
-                       
-
-                    }, 
-                  ),
-
-                  //setting list tile
-                  ListTile(
-                    leading: Icon(Icons.settings),
-                    title: Text("Settings"),
-                    //onTap: (){
-                      //pop drawer first
-                      //Navigator.pop(context);
-
-                      //navigate user back to home page
-                      //Navigator.pushNamed(context, '/Driver');
-                    //}, 
-                  ),
-                  
-                  //about list tile
-                  ListTile(
-                    leading: Icon(Icons.book),
-                    title: Text("ABOUT"),
-                    //onTap: (){
-                      //pop drawer first
-                     // Navigator.pop(context);
-
-                      //navigate user back to home page
-                     // Navigator.pushNamed(context, '/Driver');
-                    //}, 
-                  ),
-
-                  //report list tile
-                  ListTile(
-                    leading: Icon(Icons.report),
-                    title: Text("Report"),
-                    //onTap: (){
-                      //pop drawer first
-                      //Navigator.pop(context);
-
-                      //navigate user back to home page
-                     // Navigator.pushNamed(context, '/Driver');
-                    //}, 
-                  ),
-            ],
+        ],
+        leading: Builder(
+          builder: (context) => IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.black,
+            ),
+            onPressed: () {
+              Scaffold.of(context).openDrawer();
+            },
           ),
         ),
-        backgroundColor: Colors.white,
-        body: ListView(
-          //scrollDirection: Axis.horizontal, 
+      ),
+      drawer: Drawer(
+        child: ListView(
           children: [
-            Container(
-            height: 200,
-            width: 200,
-            decoration: BoxDecoration(
-              color: Colors.red
+            //Company logo
+            DrawerHeader(
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/images/companylogo.jpeg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+              child: ListTile(),
             ),
-          ),
-          Expanded(flex:1,
-          child: Container(            
-            height: 200,
-            width: 200,
-            decoration: BoxDecoration(
-              color: Colors.orange
+
+            // Home Tile
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text(
+                "Home",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Home');
+              },
             ),
-            ),            
-          ),
-          Container(            
-            height: 400,
-            width: 200,
-            decoration: BoxDecoration(
-              color: Colors.green
+
+            //Drivers tile
+
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text(
+                "Driver",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Driver');
+              },
             ),
-          ),
-        ]),
+
+            //Conductor tile
+            ListTile(
+              leading: Icon(Icons.hail_rounded),
+              title: Text(
+                "Conductor",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Conductor');
+              },
+            ),
+
+            //Vehicles tile
+            ListTile(
+              leading: Icon(Icons.drive_eta_rounded),
+              title: Text(
+                "Vehicles",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Vehicle');
+              },
+            ),
+
+            //Profile tile
+            ListTile(
+              leading: Icon(Icons.account_circle_sharp),
+              title: Text(
+                "Profile",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/Home');
+              },
+            ),
+
+            //logout tile
+            ListTile(
+              leading: Icon(Icons.logout),
+              title: Text(
+                "Logout",
+                style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
+              ),
+              onTap: () {
+                Navigator.pushNamed(context, '/');
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
