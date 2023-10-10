@@ -5,6 +5,8 @@ class ConductorPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+      backgroundColor: Colors.pink,
+    );
   }
 }
