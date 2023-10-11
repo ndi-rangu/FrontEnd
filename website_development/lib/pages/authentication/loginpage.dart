@@ -143,8 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                                 child: Container(
                                   padding: EdgeInsets.symmetric(
                                       horizontal: 100, vertical: 20),
-                                  decoration: BoxDecoration(
-                                    //color: Colors.deepPurple,
+                                  decoration: BoxDecoration(                                    
                                     borderRadius: BorderRadius.circular(5),
                                   ),
                                   child: Text('SIGN IN',
