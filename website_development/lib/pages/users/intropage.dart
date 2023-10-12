@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+//import 'package:website_development/Const/Hover.dart';
 
 class IntroPage extends StatefulWidget {
   const IntroPage({super.key});
@@ -16,13 +17,12 @@ class _IntroPageState extends State<IntroPage> {
     return Scaffold(
       backgroundColor: Colors.brown,
       body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
         child: Row(
           children: [
             Expanded(
               child: Container(
                 width: double.infinity,
-                height: 400,
+                height: 1000,
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
@@ -98,51 +98,54 @@ class _IntroPageState extends State<IntroPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Container(
-                                width: 210,
-                                height: 50,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    //navigate to google maps
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.zero, 
-                                    shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0), 
-                                    ),
-                                    primary: null, 
-                                  ),
-                                  child: Ink(
-                                    decoration: BoxDecoration(
-                                      gradient: LinearGradient(
-                                        colors: [
-                                          Colors.yellow,
-                                          Colors.yellow.shade100
-                                        ],
-                                        begin: Alignment.centerLeft,
-                                        end: Alignment.centerRight,
+                              Padding(
+                                padding: const EdgeInsets.symmetric(horizontal: 10),
+                                child: Container(
+                                  width: 210,
+                                  height: 50,
+                                  child: ElevatedButton(
+                                    onPressed: () {
+                                      //navigate to google maps
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      padding: EdgeInsets.zero,
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(8.0),
                                       ),
+                                      primary: null,
                                     ),
-                                    child: Row(
-                                      children: [
-                                        Icon(Icons.location_on,
-                                            color: Colors.black),
-                                        SizedBox(width: 8),
-                                        Text(
-                                          "NAIROBI STAGE",
-                                          style: TextStyle(
-                                            color: Colors.grey[900],
-                                            fontSize: 20,
-                                            fontWeight: FontWeight.bold,
-                                          ),
+                                    child: Ink(
+                                      decoration: BoxDecoration(
+                                        gradient: LinearGradient(
+                                          colors: [
+                                            Colors.yellow,
+                                            Colors.yellow.shade100
+                                          ],
+                                          begin: Alignment.centerLeft,
+                                          end: Alignment.centerRight,
                                         ),
-                                      ],
+                                      ),
+                                      child: Row(
+                                        children: [
+                                          Icon(Icons.location_on,
+                                              color: Colors.black),
+                                          SizedBox(width: 8),
+                                          Text(
+                                            "NAIROBI STAGE",
+                                            style: TextStyle(
+                                              color: Colors.grey[900],
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 ),
                               ),
 
-                              SizedBox(width: 200),
+                              SizedBox(width: 350),
 
                               //Ruaka stage location button
                               Container(
@@ -153,11 +156,11 @@ class _IntroPageState extends State<IntroPage> {
                                     //navigate to google maps
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.zero, 
+                                    padding: EdgeInsets.zero,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(8.0), 
+                                      borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    primary:null, 
+                                    primary: null,
                                   ),
                                   child: Ink(
                                     decoration: BoxDecoration(
@@ -191,7 +194,7 @@ class _IntroPageState extends State<IntroPage> {
                                 ),
                               ),
                               //),
-                              SizedBox(width: 170),
+                              SizedBox(width: 330),
 
                               //Banana stage location button
                               Container(
@@ -202,11 +205,11 @@ class _IntroPageState extends State<IntroPage> {
                                     //navigate to google maps
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.zero, 
+                                    padding: EdgeInsets.zero,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    primary:null, 
+                                    primary: null,
                                   ),
                                   child: Ink(
                                     decoration: BoxDecoration(
@@ -245,6 +248,46 @@ class _IntroPageState extends State<IntroPage> {
                         ],
                       ),
                     ),
+                    SizedBox(height: 40),
+
+
+                    //Statistic pie chart animation
+                    Row(
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal:20),
+                          child: Container(
+                            width: 500,
+                            height: 500,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: Colors.yellow,
+                                width: 3.0,
+                              )
+                            ),
+                          ),                          
+                        ),
+                        SizedBox(width: 250),
+
+                        //Statistic graph chart animation
+
+                        Container(
+                            width: 500,
+                            height: 500,
+                            decoration: BoxDecoration(
+                              color: Colors.black,
+                              borderRadius: BorderRadius.circular(10),
+                              border: Border.all(
+                                color: Colors.yellow,
+                                width: 3.0,
+                              )
+                            ),
+                          ),                
+                      ],
+                    ),
+                    
                   ],
                 ),
               ),
