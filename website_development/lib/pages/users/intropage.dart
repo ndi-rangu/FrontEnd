@@ -47,7 +47,7 @@ class _IntroPageState extends State<IntroPage> {
                             ),
                             fit: BoxFit.cover,
                             colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.5), // Specify your desired opacity here
+                              Colors.white.withOpacity(0.9), // Specify your desired opacity here
                               BlendMode.srcOver, // You can change the BlendMode if needed
                               ),
                           ),                          
