@@ -40,6 +40,7 @@ dependencies:
   url_launcher: ^6.1.14
   web_socket_channel: ^2.4.0
   http: ^1.1.0
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
