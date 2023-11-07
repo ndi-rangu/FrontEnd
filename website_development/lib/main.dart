@@ -8,6 +8,7 @@ import 'package:website_development/pages/users/driverpage.dart';
 import 'package:website_development/pages/users/homepage.dart';
 import 'package:website_development/pages/authentication/loginpage.dart';
 import 'package:website_development/pages/authentication/registerpage.dart';
+import 'package:website_development/pages/users/intropage.dart';
 import 'package:website_development/pages/users/vehiclepage.dart';
 
 
@@ -36,7 +37,7 @@ class MyApp extends StatelessWidget {
         '/Register':(context) => RegisterPage(),
         '/ResetPassword':(context) => ResetpasswordPage(),
         '/ChangePassword':(context) => Changepwd(),
-        
+        '/Intropage':(context) => IntroPage(),
       },
     );
   }

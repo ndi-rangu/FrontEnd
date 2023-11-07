@@ -146,8 +146,8 @@ class _ConductorPageState extends State<ConductorPage> {
                                                SizedBox(height: 20),
 
                                           AnimatedRadialGauge(
-                                            duration: Duration(seconds: 10),
-                                            curve: Curves.elasticOut,
+                                            duration: Duration(seconds: 5),
+                                            curve: Curves.decelerate,
                                             radius: 200,
                                              value: value.toDouble(),
                                              //styling the gauge 
@@ -164,6 +164,16 @@ class _ConductorPageState extends State<ConductorPage> {
                                                 background: Colors.grey,
                                                 segmentSpacing: 4,//dividing the region of gauge
                                               ),
+
+                                              //Shape of pointer
+                                              pointer: GaugePointer.needle(
+                                                width: 20,
+                                                height: 200,
+                                                borderRadius: 16,
+                                                color: Color(0xFF193663),
+                                                ),
+
+
                                               //color of pointer
                                               progressBar: GaugeProgressBar.rounded(
                                                 color: _getProgressBarColor(value.toDouble()),
@@ -219,13 +229,21 @@ class _ConductorPageState extends State<ConductorPage> {
                                               fontSize: 20,
                                               fontWeight: FontWeight.bold,),
                                               ),
-                                              Text('${value.toStringAsFixed(2)}%',// Display the value as a percentage with 2 decimal places
+                                              SizedBox(height: 10),
+                                              Text('PERCENTAGE: ${value.toStringAsFixed(2)}%',// Display the value as a percentage with 2 decimal places
                                               style: TextStyle(
                                                 fontSize: 30,
                                                 fontWeight: FontWeight.bold,
-                                                color: _getProgressBarColor(value.toDouble()),// Use the same color as the gauge
+                                                backgroundColor: Colors.grey,
+                                                color: Colors.black// _getProgressBarColor(value.toDouble()),// Use the same color as the gauge
                                                 ),
                                                 ),
+                                                SizedBox(height: 10),
+                                                Text('Comments: ${_comments(value.toDouble())}',
+                                                style: GoogleFonts.imFellEnglish(
+                                                  fontSize: 20,
+                                                  fontWeight: FontWeight.bold
+                                                ),)
                                              ],
                                       ),
                                     ),
@@ -383,6 +401,21 @@ class _ConductorPageState extends State<ConductorPage> {
                 ],
               ),
               SizedBox(height: 20),
+              Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: 1900,
+                      height: 500,
+                      decoration: BoxDecoration(
+                        color: Colors.grey,
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                    ),
+                  )
+                ],
+              )
             ],
           ),
         ),
@@ -416,5 +449,19 @@ class _ConductorPageState extends State<ConductorPage> {
     return 'GOOD';
   }else {
     return 'EXCELLENT';
+  }
+}
+
+String _comments(double value){
+  if (value <= 20) {
+    return 'You are about to be YEETED off this company. Maybe improve in the coming weeks or maybe KYS :3)';
+  } else if (value <= 40) {
+    return 'Try improving and getting out of this review';
+  } else if (value <= 60) {
+    return 'I see you like staying in between. Its cool but you might miss out on not doing anything extra in real life!';
+  } else if (value <= 80){
+    return 'We have no problems with you. Keep up and maybe try achieving the Excellent review.';
+  }else {
+    return 'PSSST?? You want a promotion dont you? Keep achieving this and we will see where to promote you ;) ';
   }
 }
