@@ -5,6 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -30,12 +32,15 @@ class _HomePageState extends State<HomePage> {
   bool mousecursor = false;
   bool mousecursor1 = false;
   bool mousecursor2 = false;
+  bool isHovered = false;
   Color dark = Color(0x000000);
+
+  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 217, 232, 245),
+      backgroundColor: Colors.blueGrey,
       body: Container(
         width: double.infinity,
         height: 1000,
@@ -45,8 +50,8 @@ class _HomePageState extends State<HomePage> {
                 'https://live.staticflickr.com/4914/44423970670_a16de5b404_b.jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Color.fromARGB(255, 217, 232, 245)
-                  .withOpacity(0.9), 
+              Colors.white
+                  .withOpacity(1), 
               BlendMode.srcOver, 
             ),
           ),
@@ -246,31 +251,86 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 25),
+              SizedBox(height: 55),
 
               //Text descriptive
-              Center(
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
                   width: double.infinity,
-                  height: 130,
-                  decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                    BoxShadow(
-                      color: Colors.yellow.shade100, // Shadow color
-                      offset: Offset(0, 10), // Offset of the shadow
-                      blurRadius: 5, // Spread of the shadow
-                      spreadRadius: 2,
-                    )
-                  ]),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      "Welcome to the forefront of Bakaki Matatu Sacco! We take immense pride in being the number one Sacco that prioritizes our customers' needs above all else. At our core, we're dedicated to ensuring your journey is not just a ride but an experience. Our commitment to service excellence is unmatched, as we consistently go the extra mile to make sure you reach your destination safely, comfortably, and with a smile. Choose us for your transport needs, and discover why we're the preferred choice in the Matatu industry. Your satisfaction is our driving force!",
-                      style: GoogleFonts.acme(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w200,
+                  height: 300,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent
+                  ),
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          width: 300,
+                          height: 300,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.orange,
+                          ),
+                          child: Image(image: 
+                          AssetImage(
+                              'assets/images/BakakiMatatu.jpg',
+                            ),
+                            fit: BoxFit.fill,
+                            ),
+                        ),
                       ),
-                    ),
+                      SizedBox(width: 20),
+                      MouseRegion(
+                         onEnter: (_) {
+                          setState(() {
+                            isHovered = true;
+                            });
+                            },
+                
+                        onExit: (_) {
+                          setState(() {
+                            isHovered = false;
+                            });
+                            },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 25),
+                          child: Column(
+                            children: [
+                              AnimatedContainer(
+                                duration: Duration(milliseconds: 200),
+                                width: isHovered? 980 : 980,
+                                height: isHovered? 240 : 230,
+                                margin: EdgeInsets.only(left: isHovered ? 20 : 0, top: isHovered ? 10: 0),
+                                decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(15),
+                                color: isHovered? Colors.blue.shade900: Colors.yellow.shade100,
+                                boxShadow: isHovered ? [BoxShadow(
+                                    color: Colors.yellow, // Shadow color
+                                    offset: Offset(0, 10), // Offset of the shadow
+                                    blurRadius: 5, // Spread of the shadow
+                                    spreadRadius: 2,
+                                  )
+                                ]: [],
+                                ),
+                                child: Padding(
+                                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                                  child: Text(
+                                    "Welcome to the forefront of Bakaki Matatu Sacco! We take immense pride in being the number one Sacco that prioritizes our customers' needs above all else. At our core, we're dedicated to ensuring your journey is not just a ride but an experience. Our commitment to service excellence is unmatched, as we consistently go the extra mile to make sure you reach your destination safely, comfortably, and with a smile. Choose us for your transport needs, and discover why we're the preferred choice in the Matatu industry. Your satisfaction is our driving force!",
+                                    style: GoogleFonts.acme(
+                                      color: isHovered? Colors.yellow.shade100: Colors.blue.shade900,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.w200,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
