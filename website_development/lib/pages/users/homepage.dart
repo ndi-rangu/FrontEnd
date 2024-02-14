@@ -1,20 +1,64 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, use_key_in_widget_constructors, prefer_const_constructors_in_immutables, unused_local_variable
+
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:fl_chart/fl_chart.dart';
+//import 'package:jwt_decoder/jwt_decoder.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:http/http.dart' as http;
+import 'package:website_development/Backend/config.dart';
 
 
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  // final token;
+  // const HomePage({@required this.token, super.key});
+  const HomePage({ super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
+class Indicator extends StatelessWidget {
+  final Color color;
+  final String text;
+
+  Indicator({required this.color, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 20,
+          height: 20,
+          color: color,
+        ),
+        SizedBox(width: 8),
+        Text(
+          text,
+          style: GoogleFonts.adventPro(
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+        )
+      ],
+    );
+  }
+}
+
 class _HomePageState extends State<HomePage> {
+ 
+
+   void fetchData() async{
+    var response = await http.post(Uri.parse(url),
+          headers: {"Content-Type":"application/json"},         
+          
+      );      
+   }
+
   // locations for the users to locate the stages
   final String location1 = '106 Banana Stage, City Centre, Nairobi';
   final String location2 = 'Ruaka/Banana Junction/Tuskys Supermarket, Nairobi';
@@ -33,7 +77,7 @@ class _HomePageState extends State<HomePage> {
   bool mousecursor1 = false;
   bool mousecursor2 = false;
   bool isHovered = false;
-  Color dark = Color(0x000000);
+  Color dark = Color(0x00000000);
 
   
 
@@ -368,7 +412,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10),
-                          child: Container(
+                          child: SizedBox(
                             width: 210,
                             height: 50,
                             child: ElevatedButton(
@@ -378,11 +422,10 @@ class _HomePageState extends State<HomePage> {
                                     'https://www.google.com/maps/search/?api=1&query=$location1');
                               },
                               style: ElevatedButton.styleFrom(
-                                padding: EdgeInsets.zero,
+                                padding: EdgeInsets.zero, backgroundColor: null,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.0),
                                 ),
-                                primary: null,
                               ),
                               child: Ink(
                                 decoration: BoxDecoration(
@@ -418,7 +461,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(width: 350),
 
                         //Ruaka stage location button
-                        Container(
+                        SizedBox(
                           width: 210,
                           height: 50,
                           child: ElevatedButton(
@@ -428,11 +471,10 @@ class _HomePageState extends State<HomePage> {
                                   'https://www.google.com/maps/search/?api=1&query=$location2');
                             },
                             style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.zero,
+                              padding: EdgeInsets.zero, backgroundColor: null,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              primary: null,
                             ),
                             child: Ink(
                               decoration: BoxDecoration(
@@ -468,7 +510,7 @@ class _HomePageState extends State<HomePage> {
                         SizedBox(width: 330),
 
                         //Banana stage location button
-                        Container(
+                        SizedBox(
                           width: 220,
                           height: 50,
                           child: ElevatedButton(
@@ -478,11 +520,10 @@ class _HomePageState extends State<HomePage> {
                                   'https://www.google.com/maps/search/?api=1&query=$location3');
                             },
                             style: ElevatedButton.styleFrom(
-                              padding: EdgeInsets.zero,
+                              padding: EdgeInsets.zero, backgroundColor: null,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8.0),
                               ),
-                              primary: null,
                             ),
                             child: Ink(
                               decoration: BoxDecoration(
@@ -617,34 +658,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
-class Indicator extends StatelessWidget {
-  final Color color;
-  final String text;
 
-  Indicator({required this.color, required this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 20,
-          height: 20,
-          color: color,
-        ),
-        SizedBox(width: 8),
-        Text(
-          text,
-          style: GoogleFonts.adventPro(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: 15,
-          ),
-        )
-      ],
-    );
-  }
-}
 
 //   @override
 //   Widget build(BuildContext context) => DefaultTabController(

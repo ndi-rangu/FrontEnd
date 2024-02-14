@@ -156,12 +156,11 @@ class _IntroPageState extends State<IntroPage> {
                                       launchUrl('https://www.google.com/maps/search/?api=1&query=$location1');
                                     },
                                     style: ElevatedButton.styleFrom(
-                                      padding: EdgeInsets.zero,
+                                      padding: EdgeInsets.zero, backgroundColor: null,
                                       shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(8.0),
                                       ),
-                                      primary: null,
                                     ),
                                     child: Ink(
                                       decoration: BoxDecoration(
@@ -207,11 +206,10 @@ class _IntroPageState extends State<IntroPage> {
                                     
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.zero,
+                                    padding: EdgeInsets.zero, backgroundColor: null,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    primary: null,
                                   ),
                                   child: Ink(
                                     decoration: BoxDecoration(
@@ -257,11 +255,10 @@ class _IntroPageState extends State<IntroPage> {
                                     launchUrl('https://www.google.com/maps/search/?api=1&query=$location3');
                                   },
                                   style: ElevatedButton.styleFrom(
-                                    padding: EdgeInsets.zero,
+                                    padding: EdgeInsets.zero, backgroundColor: null,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
                                     ),
-                                    primary: null,
                                   ),
                                   child: Ink(
                                     decoration: BoxDecoration(

@@ -2,20 +2,24 @@
 
 //import 'dart:ffi';
 
+// ignore_for_file: prefer_typing_uninitialized_variables
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:gauge_indicator/gauge_indicator.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
+//import 'package:jwt_decoder/jwt_decoder.dart';
 
 class ConductorPage extends StatefulWidget {
+  
   const ConductorPage({super.key});
 
   @override
   State<ConductorPage> createState() => _ConductorPageState();
 }
 
-class _ConductorPageState extends State<ConductorPage> {
+class _ConductorPageState extends State<ConductorPage> { 
 
   TextEditingController _date = TextEditingController();
   TextEditingController _time = TextEditingController();
@@ -374,7 +378,7 @@ class _ConductorPageState extends State<ConductorPage> {
                                               ),
                                              child: Container(
                                               padding: EdgeInsets.symmetric(
-                                                horizontal: 50, vertical: 30
+                                                horizontal: 50, vertical: 25
                                               ),
                                                child: Text(
                                                 'SUBMIT',
@@ -411,7 +415,7 @@ class _ConductorPageState extends State<ConductorPage> {
                       decoration: BoxDecoration(
                         color: Colors.grey,
                         borderRadius: BorderRadius.circular(20),
-                      ),
+                      ),                      
                     ),
                   )
                 ],
